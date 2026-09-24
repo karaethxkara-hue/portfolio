@@ -1584,3 +1584,60 @@ footer a {
     width: 60vw;
   }
 }
+
+/* Small, tactile responses for the real collage pieces. */
+.cover-page .board-tabs a,
+.cover-page .board-brand span,
+.cover-page .cover-note,
+.cover-page .cover-photo,
+.cover-page .cover-contact,
+.works-page .portrait-card,
+.works-page .reel-preview img {
+  transition: transform 260ms cubic-bezier(.2,.8,.25,1.15),
+              filter 260ms ease, box-shadow 260ms ease;
+}
+
+.cover-page .board-tabs a:nth-child(1) { transform: rotate(-2deg); }
+.cover-page .board-tabs a:nth-child(2) { transform: rotate(1deg); }
+.cover-page .board-tabs a:nth-child(3) { transform: rotate(-1deg); }
+
+@media (hover: hover) and (pointer: fine) {
+  .cover-page .board-tabs a:hover,
+  .cover-page .board-tabs a:focus-visible {
+    transform: translate(7px, -4px) rotate(2deg);
+    filter: drop-shadow(2px 5px 3px rgba(58, 34, 27, .24));
+  }
+
+  .cover-page .board-brand:hover span:nth-child(odd) { transform: translateY(-5px) rotate(-8deg); }
+  .cover-page .board-brand:hover span:nth-child(even) { transform: translateY(3px) rotate(8deg); }
+  .cover-page .cover-note:hover { transform: translateY(-5px) rotate(-1deg); }
+  .cover-page .cover-photo:hover { transform: translateY(-6px) rotate(3deg); }
+  .cover-page .cover-contact:hover { transform: translateY(-5px) rotate(1deg); }
+  .works-page .portrait-card:hover { transform: translateY(-6px) rotate(-1deg); }
+  .works-page .reel-preview:hover img { transform: scale(1.025); }
+}
+
+.cover-page .board-tabs a:active {
+  transform: translate(4px, 2px) rotate(2deg);
+  filter: brightness(.96);
+}
+
+.cover-page .board-tabs a:focus-visible,
+.cover-page .cover-contact a:focus-visible,
+.works-page .play-trigger:focus-visible,
+.works-page .reel-preview:focus-visible {
+  outline: 3px solid #702f5a;
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cover-page .board-tabs a,
+  .cover-page .board-brand span,
+  .cover-page .cover-note,
+  .cover-page .cover-photo,
+  .cover-page .cover-contact,
+  .works-page .portrait-card,
+  .works-page .reel-preview img {
+    transition: none;
+  }
+}
